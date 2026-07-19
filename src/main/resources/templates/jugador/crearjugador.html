@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="/plantilla/plantillaui">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crear Jugadores</title>
+</head>
+
+<body>
+	<div layout:fragment="cargarpaginas">
+	<h5 class="card-title fw-semibold mb-4">Lista de Jugadores</h5>
+		<form th:action="@{/jugadores/guardar}" th:object="${jugador}" method="post">
+			<div class="mb-3">
+				<label for="nombre">Nombre</label>
+				<input type="text" th:field="*{nombre}" class="form-control" id="nombre">
+			</div>
+
+			<div class="mb-3">
+				<label for="apellido">Apellido</label>
+				<input type="text" th:field="*{apellidos}" class="form-control" id="apellido" >
+			</div>
+
+			<div class="mb-3">
+				<label for="ci">Identificacion</label>
+				<input type="text" th:field="*{ci}" class="form-control" id="ident">
+			</div>
+
+			<div class="mb-3">
+				<label for="fecha">Fecha de Nacimiento</label>
+				<input type="date" th:field="*{fechaNacimiento}" class="form-control" name="fecha">
+
+			</div>
+
+			<div class="mb-3">
+				<input type="checkbox" th:field="*{estadoRegistro}" class="form-check-input" id="estado">
+				<label class="form-check-label" for="exampleCheck1">Activo</label>
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Guardar</button>
+			
+		</form>
+	</div>
+</body>
+
+</html>

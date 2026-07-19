@@ -1,0 +1,47 @@
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="/plantilla/plantillaui">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lista de Jugadores</title>
+</head>
+
+<body>
+	<div layout:fragment="cargarpaginas">
+		<h5 class="card-title fw-semibold mb-4">Lista de Jugadores</h5>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">id Jugador</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Identificacion</th>
+					<th scope="col">Fecha Nacimiento</th>
+					<th scope="col">Estado</th>
+					<th scope="col"> </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="indice: ${listajugadores}">
+					<td th:text="${indice.idJugador}"></td>
+					<td th:text="${indice.nombre}"></td>
+					<td th:text="${indice.apellidos}"></td>
+					<td th:text="${indice.ci}"></td>
+					<td th:text="${indice.fechaNacimiento}"></td>
+					<td th:text="${indice.estadoRegistro}"></td>
+					<td>
+						<a href="" class="btn btn-light"><i class="ti-pencil-alt"></i></a>
+						<a href="" class="btn btn-light"><i class="ti-trash"></i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+
+</html>
