@@ -5,6 +5,7 @@ import java.util.Date;
 import lombok.Data;
 @Data
 public class EquipoRequestDto {
+	
 	private int idEquipo;
 	
 	private String nombreEquipo;

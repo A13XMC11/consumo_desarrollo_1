@@ -10,4 +10,6 @@ public interface IJugadorService {
 	List<JugadorResponseDto> listarJugadores();
 	
 	void guardarJugador(JugadorRequestDto nuevoJugador);
+	
+	JugadorResponseDto buscarPorId(int idJugador);
 }

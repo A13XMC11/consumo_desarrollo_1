@@ -9,6 +9,8 @@ public class JugadorResponseDto {
 	private String ci;
 	private Date fechaNacimiento;
 	private boolean estadoRegistro;
+	
+	private EquipoResponseDto fkEquipoEntity;
 
 	public int getIdJugador() {
 		return idJugador;
@@ -56,6 +58,14 @@ public class JugadorResponseDto {
 
 	public void setEstadoRegistro(boolean estadoRegistro) {
 		this.estadoRegistro = estadoRegistro;
+	}
+
+	public EquipoResponseDto getFkEquipoEntity() {
+		return fkEquipoEntity;
+	}
+
+	public void setFkEquipoEntity(EquipoResponseDto fkEquipoEntity) {
+		this.fkEquipoEntity = fkEquipoEntity;
 	}
 
 }

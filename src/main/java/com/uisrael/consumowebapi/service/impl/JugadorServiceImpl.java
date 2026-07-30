@@ -8,6 +8,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import com.uisrael.consumowebapi.model.dto.request.JugadorRequestDto;
 import com.uisrael.consumowebapi.model.dto.response.JugadorResponseDto;
 import com.uisrael.consumowebapi.service.IJugadorService;
+
 @Service
 public class JugadorServiceImpl implements IJugadorService {
 
@@ -20,14 +21,20 @@ public class JugadorServiceImpl implements IJugadorService {
 	@Override
 	public List<JugadorResponseDto> listarJugadores() {
 
-		return webClient.get().uri("/jugador/query").retrieve().bodyToFlux(JugadorResponseDto.class).collectList().block();
+		return webClient.get().uri("/jugador/query").retrieve().bodyToFlux(JugadorResponseDto.class).collectList()
+				.block();
 	}
 
 	@Override
 	public void guardarJugador(JugadorRequestDto nuevoJugador) {
 		webClient.post().uri("/jugador").bodyValue(nuevoJugador).retrieve().toBodilessEntity().block();
 	}
-	
-	
+
+	@Override
+	public JugadorResponseDto buscarPorId(int idJugador) {
+
+		return webClient.get().uri(uriBuilder -> uriBuilder.path("/jugador/buscarId/{idJugador}").build(idJugador))
+				.retrieve().bodyToMono(JugadorResponseDto.class).block();
+	}
 
 }

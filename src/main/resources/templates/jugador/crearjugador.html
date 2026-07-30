@@ -12,36 +12,49 @@
 
 <body>
 	<div layout:fragment="cargarpaginas">
-	<h5 class="card-title fw-semibold mb-4">Lista de Jugadores</h5>
-		<form th:action="@{/jugadores/guardar}" th:object="${jugador}" method="post">
+		<h5 class="card-title fw-semibold mb-4">Lista de Jugadores</h5>
+		<form th:action="@{/jugadores/guardar}" th:object="${jugador}"
+			method="post">
+			<input type="hidden" th:field="*{idJugador}" class="form-control"
+				id="nombre">
 			<div class="mb-3">
-				<label for="nombre">Nombre</label>
-				<input type="text" th:field="*{nombre}" class="form-control" id="nombre">
+				<label for="nombre">Nombre</label> <input type="text"
+					th:field="*{nombre}" class="form-control" id="nombre">
 			</div>
 
 			<div class="mb-3">
-				<label for="apellido">Apellido</label>
-				<input type="text" th:field="*{apellidos}" class="form-control" id="apellido" >
+				<label for="apellido">Apellido</label> <input type="text"
+					th:field="*{apellidos}" class="form-control" id="apellido">
 			</div>
 
 			<div class="mb-3">
-				<label for="ci">Identificacion</label>
-				<input type="text" th:field="*{ci}" class="form-control" id="ident">
+				<label for="ci">Identificacion</label> <input type="text"
+					th:field="*{ci}" class="form-control" id="ident">
 			</div>
 
 			<div class="mb-3">
-				<label for="fecha">Fecha de Nacimiento</label>
-				<input type="date" th:field="*{fechaNacimiento}" class="form-control" name="fecha">
+				<label for="fecha">Fecha de Nacimiento</label> <input type="date"
+					th:field="*{fechaNacimiento}" class="form-control" name="fecha">
 
 			</div>
 
 			<div class="mb-3">
-				<input type="checkbox" th:field="*{estadoRegistro}" class="form-check-input" id="estado">
-				<label class="form-check-label" for="exampleCheck1">Activo</label>
+				<label for="equipo">Equipo</label> <select class="form-select" th:field="*{fkEquipoEntity}"
+					id="equipo">
+					<option selected value=" ">Seleccionar Grupo..</option>
+					<option th:each="equipo:${listarEquipo}"
+						th:value="${equipo.idEquipo}" th:text="${equipo.nombreEquipo}"></option>
+				</select>
 			</div>
-			
+
+			<div class="mb-3">
+				<input type="checkbox" th:field="*{estadoRegistro}"
+					class="form-check-input" id="estado"> <label
+					class="form-check-label" for="exampleCheck1">Activo</label>
+			</div>
+
 			<button type="submit" class="btn btn-primary">Guardar</button>
-			
+
 		</form>
 	</div>
 </body>

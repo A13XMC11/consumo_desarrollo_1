@@ -20,6 +20,7 @@ public class JugadorRequestDto {
 	private Date fechaNacimiento;
 	
 	private boolean estadoRegistro;
-	
+
+	private EquipoRequestDto fkEquipoEntity;
 	
 }
